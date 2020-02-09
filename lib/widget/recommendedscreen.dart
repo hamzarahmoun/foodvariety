@@ -53,6 +53,21 @@ class _RecommendedScreenState extends State<RecommendedScreen> {
                 borderRadius: BorderRadius.circular(15),
                 shape: BoxShape.rectangle,
                 colorBlendMode: BlendMode.darken,
+                loadStateChanged: (ExtendedImageState state) {
+                  switch (state.extendedImageLoadState) {
+                    case LoadState.loading:
+                      return Image.asset(
+                        'assets/azucar.gif',
+                        fit: BoxFit.fill,
+                      );
+                      break;
+                    case LoadState.completed:
+                      break;
+                    case LoadState.failed:
+                      break;
+                  }
+                  return null;
+                },
               ),
             ],
           ),
@@ -136,6 +151,21 @@ class _RecommendedScreenState extends State<RecommendedScreen> {
                   shape: BoxShape.rectangle,
                   colorBlendMode: BlendMode.darken,
                   color: Colors.black54,
+                  loadStateChanged: (ExtendedImageState state) {
+                    switch (state.extendedImageLoadState) {
+                      case LoadState.loading:
+                        return Image.asset(
+                          'assets/azucar.gif',
+                          fit: BoxFit.fill,
+                        );
+                        break;
+                      case LoadState.completed:
+                        break;
+                      case LoadState.failed:
+                        break;
+                    }
+                    return null;
+                  },
                 ),
                 Center(
                   child: Text(

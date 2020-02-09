@@ -5,6 +5,7 @@ import 'package:foodvariety/provider/recipesbycountry/moroccofood.dart';
 import 'package:foodvariety/provider/recipesbycountry/portugale.dart';
 import 'package:foodvariety/provider/recipesbycountry/swedenfood.dart';
 import 'package:foodvariety/provider/recipesbycountry/thailandfood.dart';
+import 'package:foodvariety/scrolevent.dart';
 import 'package:foodvariety/widgetscreen/recipesbycountry/moroccofood.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -43,6 +44,21 @@ class _MoroccoCountryState extends State<MoroccoCountry> {
                     borderRadius: BorderRadius.circular(20),
                     shape: BoxShape.rectangle,
                     fit: BoxFit.fill,
+                    loadStateChanged: (ExtendedImageState state) {
+                      switch (state.extendedImageLoadState) {
+                        case LoadState.loading:
+                          return Image.asset(
+                            'assets/azucar.gif',
+                            fit: BoxFit.fill,
+                          );
+                          break;
+                        case LoadState.completed:
+                          break;
+                        case LoadState.failed:
+                          break;
+                      }
+                      return null;
+                    },
                   ),
                 ),
               ),
@@ -108,10 +124,29 @@ class _MoroccoCountryState extends State<MoroccoCountry> {
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               child: Container(
                 height: height * 0.7,
-                child: ListView.builder(
-                  itemCount: morocco.moroccoRecipes.length,
-                  itemBuilder: (ctx, i) => ChangeNotifierProvider.value(
-                      value: morocco.moroccoRecipes[i], child: MoroccoWidget()),
+                child: ChangeNotifierProvider.value(
+                  value: ScrollEvent(false),
+                  child: Builder(
+                    builder: (context) {
+                      var scrolle = Provider.of<ScrollEvent>(context);
+                      return NotificationListener<ScrollNotification>(
+                        onNotification: (notification) {
+                          if (notification is ScrollStartNotification) {
+                            scrolle.isScrolling = false;
+                          } else if (notification is ScrollEndNotification) {
+                            scrolle.isScrolling = true;
+                          }
+                          return true;
+                        },
+                        child: ListView.builder(
+                          itemCount: morocco.moroccoRecipes.length,
+                          itemBuilder: (ctx, i) => ChangeNotifierProvider.value(
+                              value: morocco.moroccoRecipes[i],
+                              child: MoroccoWidget()),
+                        ),
+                      );
+                    },
+                  ),
                 ),
               ),
             )

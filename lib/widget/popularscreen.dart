@@ -1,5 +1,6 @@
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
+import 'package:foodvariety/morefoodscreen.dart';
 import 'package:foodvariety/provider/recipesbycountry/australifood.dart';
 import 'package:foodvariety/provider/recipesbycountry/chinafood.dart';
 import 'package:foodvariety/provider/recipesbycountry/japanfood.dart';
@@ -43,18 +44,29 @@ class _PopularScreenState extends State<PopularScreen> {
               style: BorderStyle.solid,
             ),
           ),
-          child: Stack(
-            children: <Widget>[
-              ExtendedImage.network(
-                image,
-                width: double.infinity,
-                fit: BoxFit.fill,
-                height: double.infinity,
-                borderRadius: BorderRadius.circular(15),
-                shape: BoxShape.rectangle,
-                colorBlendMode: BlendMode.darken,
-              ),
-            ],
+          child: ExtendedImage.network(
+            image,
+            width: double.infinity,
+            fit: BoxFit.fill,
+            height: double.infinity,
+            borderRadius: BorderRadius.circular(15),
+            shape: BoxShape.rectangle,
+            colorBlendMode: BlendMode.darken,
+            loadStateChanged: (ExtendedImageState state) {
+              switch (state.extendedImageLoadState) {
+                case LoadState.loading:
+                  return Image.asset(
+                    'assets/azucar.gif',
+                    fit: BoxFit.fill,
+                  );
+                  break;
+                case LoadState.completed:
+                  break;
+                case LoadState.failed:
+                  break;
+              }
+              return null;
+            },
           ),
         ),
       ),
@@ -112,41 +124,65 @@ class _PopularScreenState extends State<PopularScreen> {
               ),
             ],
           ),
-          Container(
-            height: MediaQuery.of(context).size.height * 0.3,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              shape: BoxShape.rectangle,
-              borderRadius: BorderRadius.circular(15),
-              color: Colors.white,
-              border: Border.all(
-                color: Colors.black,
-                width: 2,
-                style: BorderStyle.solid,
-              ),
-            ),
-            child: Stack(
-              children: <Widget>[
-                ExtendedImage.network(
-                  morocco.moroccoRecipes.sublist(3)[i].imageUrl,
-                  width: double.infinity,
-                  fit: BoxFit.fill,
-                  height: double.infinity,
-                  borderRadius: BorderRadius.circular(15),
-                  shape: BoxShape.rectangle,
-                  colorBlendMode: BlendMode.darken,
-                  color: Colors.black54,
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (ctx) =>
+                          MoreScreen(morocco.moroccoRecipes[i].imageUrl)));
+            },
+            child: Container(
+              height: MediaQuery.of(context).size.height * 0.3,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                shape: BoxShape.rectangle,
+                borderRadius: BorderRadius.circular(15),
+                color: Colors.white,
+                border: Border.all(
+                  color: Colors.black,
+                  width: 2,
+                  style: BorderStyle.solid,
                 ),
-                Center(
-                  child: Text(
-                    '+ 5',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 40,
-                    ),
+              ),
+              child: Stack(
+                children: <Widget>[
+                  ExtendedImage.network(
+                    morocco.moroccoRecipes.sublist(3)[i].imageUrl,
+                    width: double.infinity,
+                    fit: BoxFit.fill,
+                    height: double.infinity,
+                    borderRadius: BorderRadius.circular(15),
+                    shape: BoxShape.rectangle,
+                    colorBlendMode: BlendMode.darken,
+                    color: Colors.black54,
+                    loadStateChanged: (ExtendedImageState state) {
+                      switch (state.extendedImageLoadState) {
+                        case LoadState.loading:
+                          return Image.asset(
+                            'assets/azucar.gif',
+                            fit: BoxFit.fill,
+                          );
+                          break;
+                        case LoadState.completed:
+                          break;
+                        case LoadState.failed:
+                          break;
+                      }
+                      return null;
+                    },
                   ),
-                )
-              ],
+                  Center(
+                    child: Text(
+                      '+ 5',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 40,
+                      ),
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ],

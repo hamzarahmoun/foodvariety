@@ -41,6 +41,21 @@ class _ItalyCountryState extends State<ItalyCountry> {
                   borderRadius: BorderRadius.circular(20),
                   shape: BoxShape.rectangle,
                   fit: BoxFit.fill,
+                  loadStateChanged: (ExtendedImageState state) {
+                    switch (state.extendedImageLoadState) {
+                      case LoadState.loading:
+                        return Image.asset(
+                          'assets/azucar.gif',
+                          fit: BoxFit.fill,
+                        );
+                        break;
+                      case LoadState.completed:
+                        break;
+                      case LoadState.failed:
+                        break;
+                    }
+                    return null;
+                  },
                 ),
               ),
             ),

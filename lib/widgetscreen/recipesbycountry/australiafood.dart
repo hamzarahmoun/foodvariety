@@ -35,6 +35,21 @@ class AustraliaWidget extends StatelessWidget {
                   australia.imageUrl,
                   fit: BoxFit.cover,
                   width: double.infinity,
+                  loadStateChanged: (ExtendedImageState state) {
+                    switch (state.extendedImageLoadState) {
+                      case LoadState.loading:
+                        return Image.asset(
+                          'assets/azucar.gif',
+                          fit: BoxFit.fill,
+                        );
+                        break;
+                      case LoadState.completed:
+                        break;
+                      case LoadState.failed:
+                        break;
+                    }
+                    return null;
+                  },
                 ),
               ),
             ),
