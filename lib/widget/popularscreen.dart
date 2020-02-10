@@ -60,7 +60,9 @@ class PopularScreen extends StatelessWidget {
             ],
           ),
           text.buildStoryMoreImage(
-              morocco.moroccoRecipes.sublist(3)[i].imageUrl),
+            morocco.moroccoRecipes.sublist(3)[i].imageUrl,
+            morocco.moroccoRecipes.sublist(3)[i].title,
+          ),
         ],
       ),
     );

@@ -61,7 +61,9 @@ class NewScreen extends StatelessWidget {
             ],
           ),
           text.buildStoryMoreImage(
-              thailand.thailandRecipes.sublist(3)[i].imageUrl),
+            thailand.thailandRecipes.sublist(3)[i].imageUrl,
+            thailand.thailandRecipes.sublist(3)[i].title,
+          ),
         ],
       ),
     );

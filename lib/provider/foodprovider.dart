@@ -1,28 +1,12 @@
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:foodvariety/morefoodscreen.dart';
-import 'package:foodvariety/provider/recipesbycountry/chinafood.dart';
-import 'package:foodvariety/provider/recipesbycountry/italyfood.dart';
 import 'package:foodvariety/screen/foodviewgrandir/popularviewgrande.dart';
 import 'package:foodvariety/scrolevent.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-import 'recipesbycountry/australifood.dart';
-import 'recipesbycountry/moroccofood.dart';
-
 class FoodProvider with ChangeNotifier {
-  Widget lessProvider() {
-    Builder(builder: (context) {
-      final morocco = Provider.of<Morocco>(context);
-      final australia = Provider.of<Australia>(context);
-      final china = Provider.of<China>(context);
-      final italy = Provider.of<Italy>(context);
-      final height = MediaQuery.of(context).size.height;
-      return Container();
-    });
-  }
-
   Widget animationListView({Widget widget}) {
     return Builder(
       builder: (context) {
@@ -55,13 +39,13 @@ class FoodProvider with ChangeNotifier {
     );
   }
 
-  Widget buildStoryMoreImage(String image) {
+  Widget buildStoryMoreImage(String image, String title) {
     return Builder(
       builder: (context) {
         return GestureDetector(
           onTap: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (ctx) => MoreScreen()));
+            Navigator.push(context,
+                MaterialPageRoute(builder: (ctx) => MoreScreen(image, title)));
           },
           child: Container(
             height: MediaQuery.of(context).size.height * 0.3,

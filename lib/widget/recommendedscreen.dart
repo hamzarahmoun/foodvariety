@@ -60,7 +60,9 @@ class RecommendedScreen extends StatelessWidget {
             ],
           ),
           text.buildStoryMoreImage(
-              thailand.thailandRecipes.sublist(4)[i].imageUrl),
+            thailand.thailandRecipes.sublist(4)[i].imageUrl,
+            thailand.thailandRecipes.sublist(4)[i].title,
+          ),
         ],
       ),
     );
