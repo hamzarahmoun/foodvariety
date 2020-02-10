@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:foodvariety/provider/cuntryfood.dart';
+import 'package:foodvariety/provider/foodprovider.dart';
 import 'package:foodvariety/provider/recipesbycountry/australifood.dart';
 import 'package:foodvariety/provider/recipesbycountry/chinafood.dart';
 import 'package:foodvariety/provider/recipesbycountry/francefood.dart';
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
+        ChangeNotifierProvider.value(value: FoodProvider()),
         ChangeNotifierProvider.value(value: Food()),
         ChangeNotifierProvider.value(value: FoodCountry()),
         ChangeNotifierProvider.value(value: Morocco()),
