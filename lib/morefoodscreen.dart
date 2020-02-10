@@ -1,25 +1,34 @@
 import 'dart:ui';
 
+import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:foodvariety/provider/foodprovider.dart';
+import 'package:provider/provider.dart';
 
 class MoreScreen extends StatelessWidget {
   final String image;
   final String title;
-  MoreScreen(this.image, this.title);
+  final String image1;
+  final String title1;
+  final String image2;
+  final String title2;
+  final String image3;
+  final String title3;
+  final String image4;
+  final String title4;
+  MoreScreen(this.image, this.title, this.image1, this.title1, this.image2,
+      this.title2, this.image3, this.title3, this.image4, this.title4);
   @override
   Widget build(BuildContext context) {
+    final text = Provider.of<FoodProvider>(context);
     return SafeArea(
       child: Scaffold(
         body: Stack(
           children: <Widget>[
-            Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: NetworkImage(image),
-                  fit: BoxFit.fill,
-                ),
-              ),
+            ExtendedImage.network(
+              image,
+              fit: BoxFit.fill,
+              height: double.infinity,
             ),
             BackdropFilter(
               filter: ImageFilter.blur(
@@ -38,37 +47,11 @@ class MoreScreen extends StatelessWidget {
                 height: MediaQuery.of(context).size.height * 0.9,
                 child: ListView(
                   children: <Widget>[
-                    Column(
-                      children: <Widget>[
-                        Container(
-                          height: MediaQuery.of(context).size.height * 0.07,
-                          width: double.infinity,
-                          child: Center(
-                            child: Text(
-                              title,
-                              style: GoogleFonts.montserrat(
-                                fontSize: 25,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                letterSpacing: 2,
-                              ),
-                            ),
-                          ),
-                        ),
-                        Container(
-                          width: double.infinity,
-                          height: MediaQuery.of(context).size.height * 0.3,
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.white, width: 2),
-                            borderRadius: BorderRadius.circular(30),
-                            image: DecorationImage(
-                              image: NetworkImage(image),
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                    text.buildStackMoreView(title, image),
+                    text.buildStackMoreView(title1, image1),
+                    text.buildStackMoreView(title2, image2),
+                    text.buildStackMoreView(title3, image3),
+                    text.buildStackMoreView(title4, image4),
                   ],
                 ),
               ),

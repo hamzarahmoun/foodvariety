@@ -7,6 +7,58 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class FoodProvider with ChangeNotifier {
+  Widget buildStackMoreView(String title, String image) {
+    return Builder(
+      builder: (context) {
+        return Column(
+          children: <Widget>[
+            Container(
+              height: MediaQuery.of(context).size.height * 0.07,
+              width: double.infinity,
+              child: Center(
+                child: FittedBox(
+                  child: Text(
+                    title,
+                    style: GoogleFonts.montserrat(
+                      fontSize: 25,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 2,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            ExtendedImage.network(
+              image,
+              height: MediaQuery.of(context).size.height * 0.3,
+              width: double.infinity,
+              fit: BoxFit.fill,
+              borderRadius: BorderRadius.circular(25),
+              border: Border.all(color: Colors.white, width: 2),
+              shape: BoxShape.rectangle,
+              loadStateChanged: (ExtendedImageState state) {
+                switch (state.extendedImageLoadState) {
+                  case LoadState.loading:
+                    return Image.asset(
+                      'assets/azucar.gif',
+                      fit: BoxFit.fill,
+                    );
+                    break;
+                  case LoadState.completed:
+                    break;
+                  case LoadState.failed:
+                    break;
+                }
+                return null;
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   Widget animationListView({Widget widget}) {
     return Builder(
       builder: (context) {
@@ -39,13 +91,37 @@ class FoodProvider with ChangeNotifier {
     );
   }
 
-  Widget buildStoryMoreImage(String image, String title) {
+  Widget buildStoryMoreImage(
+    String image,
+    String title,
+    String image1,
+    String title1,
+    String image2,
+    String title2,
+    String image3,
+    String title3,
+    String image4,
+    String title4,
+  ) {
     return Builder(
       builder: (context) {
         return GestureDetector(
           onTap: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (ctx) => MoreScreen(image, title)));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (ctx) => MoreScreen(
+                          image,
+                          title,
+                          image1,
+                          title1,
+                          image2,
+                          title2,
+                          image3,
+                          title3,
+                          image4,
+                          title4,
+                        )));
           },
           child: Container(
             height: MediaQuery.of(context).size.height * 0.3,
