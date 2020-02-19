@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foodvariety/provider/foodprovider.dart';
+import 'package:foodvariety/provider/foodprovider/foodprovider.dart';
 import 'package:foodvariety/provider/recipesbycountry/francefood.dart';
 import 'package:foodvariety/provider/recipesbycountry/moroccofood.dart';
 import 'package:foodvariety/provider/recipesbycountry/portugale.dart';
@@ -42,19 +42,43 @@ class MoroccoCountry extends StatelessWidget {
                         children: <Widget>[
                           text.buildStory(
                             thailand.thailandRecipes.sublist(2)[i].imageUrl,
+                            thailand.thailandRecipes.sublist(2)[i].title,
                             thailand.thailandRecipes.sublist(2)[i].country,
+                            thailand.thailandRecipes.sublist(2)[i].codeFood,
+                            thailand.thailandRecipes.sublist(2)[i].ingredients,
+                            thailand.thailandRecipes.sublist(2)[i].steps,
+                            thailand.thailandRecipes.sublist(2)[i].duration,
+                            thailand.thailandRecipes.sublist(2)[i].information,
                           ),
                           text.buildStory(
                             france.franceRecipes.sublist(2)[i].imageUrl,
+                            france.franceRecipes.sublist(2)[i].title,
                             france.franceRecipes.sublist(2)[i].country,
+                            france.franceRecipes.sublist(2)[i].codeFood,
+                            france.franceRecipes.sublist(2)[i].ingredients,
+                            france.franceRecipes.sublist(2)[i].steps,
+                            france.franceRecipes.sublist(2)[i].duration,
+                            france.franceRecipes.sublist(2)[i].information,
                           ),
                           text.buildStory(
                             sweden.swedenRecipes.sublist(2)[i].imageUrl,
+                            sweden.swedenRecipes.sublist(2)[i].title,
                             sweden.swedenRecipes.sublist(2)[i].country,
+                            sweden.swedenRecipes.sublist(2)[i].codeFood,
+                            sweden.swedenRecipes.sublist(2)[i].ingredients,
+                            sweden.swedenRecipes.sublist(2)[i].steps,
+                            sweden.swedenRecipes.sublist(2)[i].duration,
+                            sweden.swedenRecipes.sublist(2)[i].information,
                           ),
                           text.buildStory(
                             portugal.portugalRecipes.sublist(2)[i].imageUrl,
+                            portugal.portugalRecipes.sublist(2)[i].title,
                             portugal.portugalRecipes.sublist(2)[i].country,
+                            portugal.portugalRecipes.sublist(2)[i].codeFood,
+                            portugal.portugalRecipes.sublist(2)[i].ingredients,
+                            portugal.portugalRecipes.sublist(2)[i].steps,
+                            portugal.portugalRecipes.sublist(2)[i].duration,
+                            portugal.portugalRecipes.sublist(2)[i].information,
                           ),
                         ],
                       )),

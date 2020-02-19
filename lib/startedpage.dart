@@ -29,7 +29,7 @@ class StartedPageState extends State<StartedPage> {
               gradient: LinearGradient(
                 colors: [
                   Color(0xff32a05f),
-                  Colors.black,
+                  Colors.red,
                 ],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
@@ -38,7 +38,7 @@ class StartedPageState extends State<StartedPage> {
                 image: AssetImage('assets/papa.jpg'),
                 fit: BoxFit.fill,
                 colorFilter: ColorFilter.mode(
-                  Color.fromRGBO(4, 19, 12, 0.6),
+                  Colors.red,
                   BlendMode.modulate,
                 ),
               ),

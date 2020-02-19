@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foodvariety/provider/foodprovider.dart';
+import 'package:foodvariety/provider/foodprovider/foodprovider.dart';
 import 'package:foodvariety/provider/recipesbycountry/italyfood.dart';
 import 'package:provider/provider.dart';
 
@@ -10,6 +10,13 @@ class ItalyWidget extends StatelessWidget {
     final text = Provider.of<FoodProvider>(context);
 
     return text.buildGridTile(
-        italy.imageUrl, italy.title, italy.country, italy.codeFood);
+        italy.imageUrl,
+        italy.title,
+        italy.country,
+        italy.codeFood,
+        italy.ingredients,
+        italy.steps,
+        italy.duration,
+        italy.information);
   }
 }

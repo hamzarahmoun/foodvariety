@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foodvariety/provider/foodprovider.dart';
+import 'package:foodvariety/provider/foodprovider/foodprovider.dart';
 import 'package:foodvariety/provider/recipesbycountry/australifood.dart';
 import 'package:foodvariety/provider/recipesbycountry/chinafood.dart';
 import 'package:foodvariety/provider/recipesbycountry/italyfood.dart';
@@ -39,19 +39,43 @@ class AustraliaCountry extends StatelessWidget {
                         children: <Widget>[
                           text.buildStory(
                             australia.australiaRecipes[i].imageUrl,
+                            australia.australiaRecipes[i].title,
                             australia.australiaRecipes[i].country,
+                            australia.australiaRecipes[i].rating,
+                            australia.australiaRecipes[i].ingredients,
+                            australia.australiaRecipes[i].steps,
+                            australia.australiaRecipes[i].duration,
+                            australia.australiaRecipes[i].information,
                           ),
                           text.buildStory(
                             italy.italyRecipes[i].imageUrl,
+                            italy.italyRecipes[i].title,
                             italy.italyRecipes[i].country,
+                            italy.italyRecipes[i].codeFood,
+                            italy.italyRecipes[i].ingredients,
+                            italy.italyRecipes[i].steps,
+                            italy.italyRecipes[i].duration,
+                            italy.italyRecipes[i].information,
                           ),
                           text.buildStory(
                             china.chinaRecipes[i].imageUrl,
+                            china.chinaRecipes[i].title,
                             china.chinaRecipes[i].country,
+                            china.chinaRecipes[i].codeFood,
+                            china.chinaRecipes[i].ingredients,
+                            china.chinaRecipes[i].steps,
+                            china.chinaRecipes[i].duration,
+                            china.chinaRecipes[i].information,
                           ),
                           text.buildStory(
                             morocco.moroccoRecipes[i].imageUrl,
+                            morocco.moroccoRecipes[i].title,
                             morocco.moroccoRecipes[i].country,
+                            morocco.moroccoRecipes[i].codeFood,
+                            morocco.moroccoRecipes[i].ingredients,
+                            morocco.moroccoRecipes[i].steps,
+                            morocco.moroccoRecipes[i].duration,
+                            morocco.moroccoRecipes[i].information,
                           ),
                         ],
                       )),

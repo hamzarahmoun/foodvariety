@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foodvariety/provider/foodprovider.dart';
+import 'package:foodvariety/provider/foodprovider/foodprovider.dart';
 import 'package:foodvariety/provider/recipesbycountry/australifood.dart';
 import 'package:foodvariety/provider/recipesbycountry/chinafood.dart';
 import 'package:foodvariety/provider/recipesbycountry/italyfood.dart';
@@ -48,19 +48,47 @@ class _ChinaCountryState extends State<ChinaCountry> {
                         children: <Widget>[
                           text.buildStory(
                             australia.australiaRecipes.sublist(1)[i].imageUrl,
+                            australia.australiaRecipes.sublist(1)[i].title,
                             australia.australiaRecipes.sublist(1)[i].country,
+                            australia.australiaRecipes.sublist(1)[i].rating,
+                            australia.australiaRecipes
+                                .sublist(1)[i]
+                                .ingredients,
+                            australia.australiaRecipes.sublist(1)[i].steps,
+                            australia.australiaRecipes.sublist(1)[i].duration,
+                            australia.australiaRecipes
+                                .sublist(1)[i]
+                                .information,
                           ),
                           text.buildStory(
                             italy.italyRecipes.sublist(1)[i].imageUrl,
+                            italy.italyRecipes.sublist(1)[i].title,
                             italy.italyRecipes.sublist(1)[i].country,
+                            italy.italyRecipes.sublist(1)[i].codeFood,
+                            italy.italyRecipes.sublist(1)[i].ingredients,
+                            italy.italyRecipes.sublist(1)[i].steps,
+                            italy.italyRecipes.sublist(1)[i].duration,
+                            italy.italyRecipes.sublist(1)[i].information,
                           ),
                           text.buildStory(
                             china.chinaRecipes.sublist(1)[i].imageUrl,
+                            china.chinaRecipes.sublist(1)[i].title,
                             china.chinaRecipes.sublist(1)[i].country,
+                            china.chinaRecipes.sublist(1)[i].codeFood,
+                            china.chinaRecipes.sublist(1)[i].ingredients,
+                            china.chinaRecipes.sublist(1)[i].steps,
+                            china.chinaRecipes.sublist(1)[i].duration,
+                            china.chinaRecipes.sublist(1)[i].information,
                           ),
                           text.buildStory(
                             morocco.moroccoRecipes.sublist(1)[i].imageUrl,
+                            morocco.moroccoRecipes.sublist(1)[i].title,
                             morocco.moroccoRecipes.sublist(1)[i].country,
+                            morocco.moroccoRecipes.sublist(1)[i].codeFood,
+                            morocco.moroccoRecipes.sublist(1)[i].ingredients,
+                            morocco.moroccoRecipes.sublist(1)[i].steps,
+                            morocco.moroccoRecipes.sublist(1)[i].duration,
+                            morocco.moroccoRecipes.sublist(1)[i].information,
                           ),
                         ],
                       )),

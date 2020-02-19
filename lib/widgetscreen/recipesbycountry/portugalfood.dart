@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foodvariety/provider/foodprovider.dart';
+import 'package:foodvariety/provider/foodprovider/foodprovider.dart';
 import 'package:foodvariety/provider/recipesbycountry/portugale.dart';
 import 'package:provider/provider.dart';
 
@@ -10,6 +10,13 @@ class PortugalWidget extends StatelessWidget {
     final text = Provider.of<FoodProvider>(context);
 
     return text.buildGridTile(
-        portugal.imageUrl, portugal.title, portugal.country, portugal.codeFood);
+        portugal.imageUrl,
+        portugal.title,
+        portugal.country,
+        portugal.codeFood,
+        portugal.ingredients,
+        portugal.steps,
+        portugal.duration,
+        portugal.information);
   }
 }

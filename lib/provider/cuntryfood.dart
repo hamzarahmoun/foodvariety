@@ -4,7 +4,6 @@ import 'package:foodvariety/screen/recipesbycountry/chinafood.dart';
 import 'package:foodvariety/screen/recipesbycountry/francefood.dart';
 import 'package:foodvariety/screen/recipesbycountry/indiafood.dart';
 import 'package:foodvariety/screen/recipesbycountry/italyfood.dart';
-import 'package:foodvariety/screen/recipesbycountry/japan.dart';
 import 'package:foodvariety/screen/recipesbycountry/moroccofood.dart';
 import 'package:foodvariety/screen/recipesbycountry/portugale.dart';
 import 'package:foodvariety/screen/recipesbycountry/swedenfood.dart';
@@ -66,12 +65,6 @@ class Food with ChangeNotifier {
       image: 'assets/thailand.png',
       code: 'TH',
       pressed: '${ThailandCountry.routeName}',
-    ),
-    FoodCountry(
-      id: 'f8',
-      image: 'assets/japan.jpg',
-      code: 'JP',
-      pressed: '${JapanCountry.routeName}',
     ),
     FoodCountry(
       id: 'f9',

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foodvariety/provider/foodprovider.dart';
+import 'package:foodvariety/provider/foodprovider/foodprovider.dart';
 import 'package:foodvariety/provider/recipesbycountry/chinafood.dart';
 import 'package:provider/provider.dart';
 
@@ -9,6 +9,13 @@ class ChinaWidget extends StatelessWidget {
     final china = Provider.of<ChinaFood>(context);
     final text = Provider.of<FoodProvider>(context);
     return text.buildGridTile(
-        china.imageUrl, china.title, china.country, china.codeFood);
+        china.imageUrl,
+        china.title,
+        china.country,
+        china.codeFood,
+        china.ingredients,
+        china.steps,
+        china.duration,
+        china.information);
   }
 }
