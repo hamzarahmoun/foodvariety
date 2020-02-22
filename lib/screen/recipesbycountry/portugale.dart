@@ -84,14 +84,17 @@ class PortugalCountry extends StatelessWidget {
             ),
             text.buildText('Best Dishes To Eat  ', 'in Portugal'),
             text.animationListView(
-              widget: ListView.builder(
-                itemCount: portugal.portugalRecipes.length,
-                itemBuilder: (ctx, i) {
-                  return ChangeNotifierProvider.value(
-                    value: portugal.portugalRecipes[i],
-                    child: PortugalWidget(),
-                  );
-                },
+              widget: Padding(
+                padding: const EdgeInsets.only(bottom: 15),
+                child: ListView.builder(
+                  itemCount: portugal.portugalRecipes.length,
+                  itemBuilder: (ctx, i) {
+                    return ChangeNotifierProvider.value(
+                      value: portugal.portugalRecipes[i],
+                      child: PortugalWidget(),
+                    );
+                  },
+                ),
               ),
             ),
           ],

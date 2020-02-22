@@ -21,7 +21,7 @@ class RecommendedScreen extends StatelessWidget {
           Row(
             children: <Widget>[
               Container(
-                height: MediaQuery.of(context).size.height * 0.3,
+                height: MediaQuery.of(context).size.height * 0.25,
                 child: Column(
                   children: <Widget>[
                     Expanded(
@@ -61,7 +61,7 @@ class RecommendedScreen extends StatelessWidget {
               ),
               Expanded(
                 child: text.buildStoryViewAll(
-                  bottomHeight: 0.29,
+                  bottomHeight: 0.24,
                   bottomWidth: 0.1,
                   title: sweden.swedenRecipes.sublist(1)[i].title,
                   image: sweden.swedenRecipes.sublist(1)[i].imageUrl,

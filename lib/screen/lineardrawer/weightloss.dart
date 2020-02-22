@@ -16,16 +16,19 @@ class WeightLoss extends StatelessWidget {
           onTapClose: true,
           swipe: true,
           leftChild: text.buildDrawer(),
-          scaffold: Scaffold(
-            body: ListView.builder(
-                itemCount: weight.weight.length,
-                itemBuilder: (ctx, i) {
-                  return food.buildCard(
-                      weight.weight[i].image,
-                      weight.weight[i].title,
-                      weight.weight[i].description,
-                      weight.weight[i].suite);
-                }),
+          scaffold: Padding(
+            padding: const EdgeInsets.only(bottom: 50),
+            child: Scaffold(
+              body: ListView.builder(
+                  itemCount: weight.weight.length,
+                  itemBuilder: (ctx, i) {
+                    return food.buildCard(
+                        weight.weight[i].image,
+                        weight.weight[i].title,
+                        weight.weight[i].description,
+                        weight.weight[i].suite);
+                  }),
+            ),
           )),
     );
   }

@@ -34,7 +34,7 @@ class MoroccoCountry extends StatelessWidget {
                     Colors.white,
                     Colors.black54,
                   ])),
-              height: height * 0.2,
+              height: height < 500 ? height * 0.2 : height * 0.2,
               child: ListView.builder(
                   itemCount: 1,
                   scrollDirection: Axis.horizontal,
@@ -85,14 +85,17 @@ class MoroccoCountry extends StatelessWidget {
             ),
             text.buildText('Best Dishes To Eat  ', 'in Morocco'),
             text.animationListView(
-              widget: ListView.builder(
-                itemCount: morocco.moroccoRecipes.length,
-                itemBuilder: (ctx, i) {
-                  return ChangeNotifierProvider.value(
-                    value: morocco.moroccoRecipes[i],
-                    child: MoroccoWidget(),
-                  );
-                },
+              widget: Padding(
+                padding: const EdgeInsets.only(bottom: 15),
+                child: ListView.builder(
+                  itemCount: morocco.moroccoRecipes.length,
+                  itemBuilder: (ctx, i) {
+                    return ChangeNotifierProvider.value(
+                      value: morocco.moroccoRecipes[i],
+                      child: MoroccoWidget(),
+                    );
+                  },
+                ),
               ),
             ),
           ],

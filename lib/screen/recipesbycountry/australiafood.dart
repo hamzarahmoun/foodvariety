@@ -82,14 +82,17 @@ class AustraliaCountry extends StatelessWidget {
             ),
             text.buildText('Best Dishes To Eat  ', 'in Australia'),
             text.animationListView(
-              widget: ListView.builder(
-                itemCount: australia.australiaRecipes.length,
-                itemBuilder: (ctx, i) {
-                  return ChangeNotifierProvider.value(
-                    value: australia.australiaRecipes[i],
-                    child: AustraliaWidget(),
-                  );
-                },
+              widget: Padding(
+                padding: const EdgeInsets.only(bottom: 15),
+                child: ListView.builder(
+                  itemCount: australia.australiaRecipes.length,
+                  itemBuilder: (ctx, i) {
+                    return ChangeNotifierProvider.value(
+                      value: australia.australiaRecipes[i],
+                      child: AustraliaWidget(),
+                    );
+                  },
+                ),
               ),
             ),
           ],

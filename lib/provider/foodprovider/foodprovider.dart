@@ -1,6 +1,8 @@
 import 'dart:ui';
 
 import 'package:extended_image/extended_image.dart';
+import 'package:firebase_admob/firebase_admob.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:foodvariety/morefoodscreen.dart';
 import 'package:foodvariety/screen/detail/detailforthemoreimage.dart';
@@ -51,24 +53,48 @@ class FoodProvider with ChangeNotifier {
   }
 
   Widget buildListTileDrawer(String image, String name, Widget widget) {
+    final MobileAdTargetingInfo targetInfo = new MobileAdTargetingInfo(
+      testDevices: <String>[],
+      keywords: <String>['wallpapers', 'walls', 'amoled'],
+      birthday: new DateTime.now(),
+      childDirected: true,
+    );
+    InterstitialAd createInterstitialAd() {
+      return new InterstitialAd(
+          adUnitId: "ca-app-pub-1449627578050146/6769692130",
+          targetingInfo: targetInfo,
+          listener: (MobileAdEvent event) {
+            print("Interstitial event : $event");
+          });
+    }
+
     return Builder(
       builder: (context) {
-        return ListTile(
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (ctx) => widget,
+        final height = MediaQuery.of(context).size.height;
+        return Container(
+          height: height * 0.09,
+          child: ListTile(
+            onTap: () {
+              createInterstitialAd()
+                ..load()
+                ..show();
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (ctx) => widget,
+                ),
+              );
+            },
+            leading: Image.asset(
+              image,
+              width: 25,
+            ),
+            title: Text(
+              name,
+              style: GoogleFonts.aBeeZee(
+                fontSize: height < 600 ? 12 : 18,
               ),
-            );
-          },
-          leading: Image.asset(
-            image,
-            width: 25,
-          ),
-          title: Text(
-            name,
-            style: GoogleFonts.aBeeZee(),
+            ),
           ),
         );
       },
@@ -78,6 +104,7 @@ class FoodProvider with ChangeNotifier {
   Widget buildDrawer() {
     return Builder(
       builder: (context) {
+        final height = MediaQuery.of(context).size.height;
         return Scaffold(
           body: Container(
             decoration: BoxDecoration(
@@ -85,20 +112,29 @@ class FoodProvider with ChangeNotifier {
               Colors.white,
               Colors.grey[500],
             ])),
-            child: Column(
+            child: ListView(
               children: <Widget>[
-                Image.asset('assets/drawer.jpg'),
-                ListTile(
-                  onTap: () {
-                    Navigator.pushNamed(context, HomePage.routeName);
-                  },
-                  title: Center(
-                    child: Text(
-                      'Home',
-                      style: GoogleFonts.abhayaLibre(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 30,
+                Container(
+                    height: height < 600 ? height * 0.25 : height * 0.3,
+                    width: double.infinity,
+                    child: Image.asset(
+                      'assets/drawer.jpg',
+                      fit: BoxFit.fill,
+                    )),
+                Container(
+                  height: height < 600 ? height * 0.1 : height * 0.1,
+                  child: ListTile(
+                    onTap: () {
+                      Navigator.pushNamed(context, HomePage.routeName);
+                    },
+                    title: Center(
+                      child: Text(
+                        'Home',
+                        style: GoogleFonts.abhayaLibre(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: height < 600 ? 20 : 30,
+                        ),
                       ),
                     ),
                   ),
@@ -158,17 +194,18 @@ class FoodProvider with ChangeNotifier {
   ) {
     return Builder(
       builder: (context) {
+        final height = MediaQuery.of(context).size.height;
         return Column(
           children: <Widget>[
             Container(
-              height: MediaQuery.of(context).size.height * 0.07,
+              height: height * 0.07,
               width: double.infinity,
               child: Center(
                 child: FittedBox(
                   child: Text(
                     title,
                     style: GoogleFonts.montserrat(
-                      fontSize: 25,
+                      fontSize: height < 600 ? 17 : 25,
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                       letterSpacing: 2,
@@ -200,8 +237,8 @@ class FoodProvider with ChangeNotifier {
                                   information)));
                     },
                     child: Container(
-                      width: 70,
-                      height: MediaQuery.of(context).size.height * 0.06,
+                      width: height < 600 ? 50 : 70,
+                      height: height * 0.06,
                       decoration: BoxDecoration(
                           gradient: LinearGradient(colors: [
                             Colors.black26,
@@ -211,7 +248,8 @@ class FoodProvider with ChangeNotifier {
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(10),
                             bottomLeft: Radius.circular(10),
-                            bottomRight: Radius.circular(30),
+                            bottomRight:
+                                Radius.circular(height < 600 ? 10 : 15),
                           )),
                       child: Icon(
                         Icons.arrow_forward,
@@ -353,7 +391,7 @@ class FoodProvider with ChangeNotifier {
                         )));
           },
           child: Container(
-            height: MediaQuery.of(context).size.height * 0.3,
+            height: MediaQuery.of(context).size.height * 0.2,
             width: double.infinity,
             decoration: BoxDecoration(
               shape: BoxShape.rectangle,
@@ -400,6 +438,8 @@ class FoodProvider with ChangeNotifier {
   ) {
     return Builder(
       builder: (context) {
+        final height = MediaQuery.of(context).size.height;
+        final width = MediaQuery.of(context).size.width;
         return GestureDetector(
           onTap: () {
             Navigator.push(
@@ -409,9 +449,10 @@ class FoodProvider with ChangeNotifier {
                         rating, ingredients, steps, duration, information)));
           },
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
             child: Container(
-              width: MediaQuery.of(context).size.width * 0.5,
+              width: height < 600 ? width * 0.4 : width * 0.5,
+              height: height < 600 ? height * 0.19 : height * 0.2,
               decoration: BoxDecoration(
                 shape: BoxShape.rectangle,
                 color: Colors.white,
@@ -422,15 +463,15 @@ class FoodProvider with ChangeNotifier {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
-                        height: 90,
-                        width: MediaQuery.of(context).size.width * 0.25,
+                        height: height < 600 ? height * 0.3 : height * 0.3,
+                        width: height < 600 ? width * 0.15 : width * 0.25,
                         child: extendedImage(image, null, null)),
                   ),
                   FittedBox(
                     child: Text(country,
                         textAlign: TextAlign.center,
                         style: GoogleFonts.aclonica(
-                          fontSize: 15,
+                          fontSize: height < 600 ? 10 : 15,
                         )),
                   )
                 ],
@@ -507,6 +548,7 @@ class FoodProvider with ChangeNotifier {
     return Builder(
       builder: (context) {
         var animation = Provider.of<ScrollEvent>(context).isScrolling;
+        final height = MediaQuery.of(context).size.height;
         return TweenAnimationBuilder(
           tween:
               Tween(begin: animation ? 0.0 : -0.2, end: animation ? -0.2 : 0.0),
@@ -524,7 +566,7 @@ class FoodProvider with ChangeNotifier {
                           rating, ingredients, steps, duration, information)));
                 },
                 child: Container(
-                  height: MediaQuery.of(context).size.height * 0.3,
+                  height: height < 600 ? height * 0.35 : height * 0.3,
                   child: GridTile(
                       child: Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -532,16 +574,21 @@ class FoodProvider with ChangeNotifier {
                       footer: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Container(
-                          color: Colors.black54,
-                          child: ListTile(
-                            title: Center(
-                              child: Text(
-                                title,
-                                style: GoogleFonts.abel(
-                                    fontSize: 25,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold),
-                              ),
+                          height: height < 600 ? height * 0.1 : height * 0.07,
+                          width: double.infinity,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                              color: Colors.black54,
+                              borderRadius: BorderRadius.only(
+                                  bottomRight: Radius.circular(20),
+                                  bottomLeft: Radius.circular(20))),
+                          child: Center(
+                            child: Text(
+                              title,
+                              style: GoogleFonts.abel(
+                                  fontSize: height < 600 ? 15 : 25,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
                             ),
                           ),
                         ),
@@ -558,16 +605,17 @@ class FoodProvider with ChangeNotifier {
   Widget buildText(String title, String text) {
     return Builder(
       builder: (context) {
+        final height = MediaQuery.of(context).size.height;
         return Container(
           alignment: Alignment.center,
-          height: MediaQuery.of(context).size.height * 0.05,
+          height: height < 600 ? height * 0.05 : height * 0.05,
           child: RichText(
             textAlign: TextAlign.center,
             text: TextSpan(
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontStyle: FontStyle.italic,
-                fontSize: 20,
+                fontSize: height < 600 ? 14 : 20,
               ),
               children: [
                 TextSpan(

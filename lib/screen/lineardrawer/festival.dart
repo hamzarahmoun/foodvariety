@@ -6,28 +6,31 @@ import 'package:foodvariety/provider/foodprovider/foodprovidr1.dart';
 import 'package:provider/provider.dart';
 
 class FestivalScreen extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     final festival = Provider.of<FestivalFuture>(context);
     final text = Provider.of<FoodProvider>(context);
     final food = Provider.of<FoodProvider1>(context);
-
     return SafeArea(
       child: InnerDrawer(
           onTapClose: true,
           swipe: true,
           leftChild: text.buildDrawer(),
-          scaffold: Scaffold(
-            body: ListView.builder(
-                itemCount: festival.festival.length,
-                itemBuilder: (ctx, i) {
-                  return food.buildCard(
-                    festival.festival[i].image,
-                    festival.festival[i].title,
-                    festival.festival[i].description,
-                    festival.festival[i].suite,
-                  );
-                }),
+          scaffold: Padding(
+            padding: const EdgeInsets.only(bottom: 50),
+            child: Scaffold(
+              body: ListView.builder(
+                  itemCount: festival.festival.length,
+                  itemBuilder: (ctx, i) {
+                    return food.buildCard(
+                      festival.festival[i].image,
+                      festival.festival[i].title,
+                      festival.festival[i].description,
+                      festival.festival[i].suite,
+                    );
+                  }),
+            ),
           )),
     );
   }

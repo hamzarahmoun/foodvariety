@@ -82,14 +82,17 @@ class ThailandCountry extends StatelessWidget {
             ),
             text.buildText('Best Dishes To Eat  ', 'in Thailand'),
             text.animationListView(
-              widget: ListView.builder(
-                itemCount: thailand.thailandRecipes.length,
-                itemBuilder: (ctx, i) {
-                  return ChangeNotifierProvider.value(
-                    value: thailand.thailandRecipes[i],
-                    child: ThailandWidget(),
-                  );
-                },
+              widget: Padding(
+                padding: const EdgeInsets.only(bottom: 15),
+                child: ListView.builder(
+                  itemCount: thailand.thailandRecipes.length,
+                  itemBuilder: (ctx, i) {
+                    return ChangeNotifierProvider.value(
+                      value: thailand.thailandRecipes[i],
+                      child: ThailandWidget(),
+                    );
+                  },
+                ),
               ),
             ),
           ],

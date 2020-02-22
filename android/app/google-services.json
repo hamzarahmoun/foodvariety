@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "439737421669",
+    "firebase_url": "https://culturefood-a7e1b.firebaseio.com",
+    "project_id": "culturefood-a7e1b",
+    "storage_bucket": "culturefood-a7e1b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:439737421669:android:a8d4842aa4e8be36155b8c",
+        "android_client_info": {
+          "package_name": "com.overnight.foodvariety"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "439737421669-mmhr2tuiigpvlm0ikcbdbod1qe1se2ba.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXouvR8AwPx5JpKEWlvtTU6LCkKDr_rEk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "439737421669-mmhr2tuiigpvlm0ikcbdbod1qe1se2ba.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

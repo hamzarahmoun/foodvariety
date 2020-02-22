@@ -88,14 +88,17 @@ class IndiaCountry extends StatelessWidget {
             ),
             text.buildText('Best Dishes To Eat  ', 'in India'),
             text.animationListView(
-              widget: ListView.builder(
-                itemCount: india.indiaRecipes.length,
-                itemBuilder: (ctx, i) {
-                  return ChangeNotifierProvider.value(
-                    value: india.indiaRecipes[i],
-                    child: IndiaWidget(),
-                  );
-                },
+              widget: Padding(
+                padding: const EdgeInsets.only(bottom: 15),
+                child: ListView.builder(
+                  itemCount: india.indiaRecipes.length,
+                  itemBuilder: (ctx, i) {
+                    return ChangeNotifierProvider.value(
+                      value: india.indiaRecipes[i],
+                      child: IndiaWidget(),
+                    );
+                  },
+                ),
               ),
             ),
           ],

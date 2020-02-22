@@ -16,17 +16,20 @@ class FoodNewsScreen extends StatelessWidget {
           onTapClose: true,
           swipe: true,
           leftChild: text.buildDrawer(),
-          scaffold: Scaffold(
-            body: ListView.builder(
-                itemCount: food.foodNews.length,
-                itemBuilder: (ctx, i) {
-                  return food1.buildCard(
-                    food.foodNews[i].image,
-                    food.foodNews[i].title,
-                    food.foodNews[i].description,
-                    food.foodNews[i].suite,
-                  );
-                }),
+          scaffold: Padding(
+            padding: const EdgeInsets.only(bottom: 50),
+            child: Scaffold(
+              body: ListView.builder(
+                  itemCount: food.foodNews.length,
+                  itemBuilder: (ctx, i) {
+                    return food1.buildCard(
+                      food.foodNews[i].image,
+                      food.foodNews[i].title,
+                      food.foodNews[i].description,
+                      food.foodNews[i].suite,
+                    );
+                  }),
+            ),
           )),
     );
   }

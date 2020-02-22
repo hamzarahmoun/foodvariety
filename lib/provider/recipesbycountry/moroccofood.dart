@@ -315,19 +315,7 @@ class Morocco with ChangeNotifier {
         codeFood: 3,
         information:
             'If you love the mix of sweet and salty flavors than you definitely need to try bastilla (also spelled pastilla). This flaky pie is traditionally made with pigeon, but more commonly served with chicken now.',
-        duration: '1 h 30 min',
-        ingredients: [],
-        steps: []),
-    MoroccoFood(
-        id: 'r1',
-        title: 'STEAMED SHEEP HEAD',
-        country: 'Morocco',
-        imageUrl:
-            'https://localadventurer.com/wp-content/uploads/2015/11/sheep-head-food-morocco.jpg',
-        codeFood: 4,
-        information:
-            'During the festival of Eid al-Adha, everyone slaughters a sheep and then steams the head for hours. You can typically purchase a half or whole head and enjoy it with cumin, salt, and chili. The whole head is edible, but the best parts are the tender cheek meat and tongue.',
-        duration: '3 hrs',
+        duration: '3 h 30 min',
         ingredients: [
           'For the Chicken:',
           '1 large chicken, skin and fat removed (cut into pieces)',

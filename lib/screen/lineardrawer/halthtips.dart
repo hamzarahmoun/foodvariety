@@ -16,16 +16,19 @@ class HealthTips extends StatelessWidget {
           onTapClose: true,
           swipe: true,
           leftChild: text.buildDrawer(),
-          scaffold: Scaffold(
-            body: ListView.builder(
-                itemCount: health.health.length,
-                itemBuilder: (ctx, i) {
-                  return food.buildCard(
-                      health.health[i].image,
-                      health.health[i].title,
-                      health.health[i].description,
-                      health.health[i].suite);
-                }),
+          scaffold: Padding(
+            padding: const EdgeInsets.only(bottom: 50),
+            child: Scaffold(
+              body: ListView.builder(
+                  itemCount: health.health.length,
+                  itemBuilder: (ctx, i) {
+                    return food.buildCard(
+                        health.health[i].image,
+                        health.health[i].title,
+                        health.health[i].description,
+                        health.health[i].suite);
+                  }),
+            ),
           )),
     );
   }

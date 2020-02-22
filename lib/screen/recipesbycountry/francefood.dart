@@ -82,14 +82,17 @@ class FranceCountry extends StatelessWidget {
             ),
             text.buildText('Best Dishes To Eat  ', 'in France'),
             text.animationListView(
-              widget: ListView.builder(
-                itemCount: france.franceRecipes.length,
-                itemBuilder: (ctx, i) {
-                  return ChangeNotifierProvider.value(
-                    value: france.franceRecipes[i],
-                    child: FranceWidget(),
-                  );
-                },
+              widget: Padding(
+                padding: const EdgeInsets.only(bottom: 15),
+                child: ListView.builder(
+                  itemCount: france.franceRecipes.length,
+                  itemBuilder: (ctx, i) {
+                    return ChangeNotifierProvider.value(
+                      value: france.franceRecipes[i],
+                      child: FranceWidget(),
+                    );
+                  },
+                ),
               ),
             ),
           ],

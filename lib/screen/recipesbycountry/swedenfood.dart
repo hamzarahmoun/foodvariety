@@ -82,14 +82,17 @@ class SwedenCountry extends StatelessWidget {
             ),
             text.buildText('Best Dishes To Eat  ', 'in Sweden'),
             text.animationListView(
-              widget: ListView.builder(
-                itemCount: sweden.swedenRecipes.length,
-                itemBuilder: (ctx, i) {
-                  return ChangeNotifierProvider.value(
-                    value: sweden.swedenRecipes[i],
-                    child: SwedenWidget(),
-                  );
-                },
+              widget: Padding(
+                padding: const EdgeInsets.only(bottom: 15),
+                child: ListView.builder(
+                  itemCount: sweden.swedenRecipes.length,
+                  itemBuilder: (ctx, i) {
+                    return ChangeNotifierProvider.value(
+                      value: sweden.swedenRecipes[i],
+                      child: SwedenWidget(),
+                    );
+                  },
+                ),
               ),
             ),
           ],

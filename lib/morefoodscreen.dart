@@ -92,46 +92,49 @@ class MoreScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final text = Provider.of<FoodProvider>(context);
     return SafeArea(
-      child: Scaffold(
-        body: Stack(
-          children: <Widget>[
-            ExtendedImage.network(
-              image,
-              fit: BoxFit.fill,
-              height: double.infinity,
-            ),
-            BackdropFilter(
-              filter: ImageFilter.blur(
-                sigmaX: 3,
-                sigmaY: 3,
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 50),
+        child: Scaffold(
+          body: Stack(
+            children: <Widget>[
+              ExtendedImage.network(
+                image,
+                fit: BoxFit.fill,
+                height: double.infinity,
               ),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.black45,
+              BackdropFilter(
+                filter: ImageFilter.blur(
+                  sigmaX: 3,
+                  sigmaY: 3,
+                ),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.black45,
+                  ),
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
-              child: Container(
-                height: MediaQuery.of(context).size.height * 0.9,
-                child: ListView(
-                  children: <Widget>[
-                    text.buildStackMoreView(title, image, country, rating,
-                        ingredients, steps, duration, information),
-                    text.buildStackMoreView(title1, image1, country1, rating1,
-                        ingredients1, steps1, duration1, information1),
-                    text.buildStackMoreView(title2, image2, country2, rating2,
-                        ingredients2, steps2, duration2, information2),
-                    text.buildStackMoreView(title3, image3, country3, rating3,
-                        ingredients3, steps3, duration3, information3),
-                    text.buildStackMoreView(title4, image4, country4, rating4,
-                        ingredients4, steps4, duration4, information4),
-                  ],
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
+                child: Container(
+                  height: MediaQuery.of(context).size.height * 0.9,
+                  child: ListView(
+                    children: <Widget>[
+                      text.buildStackMoreView(title, image, country, rating,
+                          ingredients, steps, duration, information),
+                      text.buildStackMoreView(title1, image1, country1, rating1,
+                          ingredients1, steps1, duration1, information1),
+                      text.buildStackMoreView(title2, image2, country2, rating2,
+                          ingredients2, steps2, duration2, information2),
+                      text.buildStackMoreView(title3, image3, country3, rating3,
+                          ingredients3, steps3, duration3, information3),
+                      text.buildStackMoreView(title4, image4, country4, rating4,
+                          ingredients4, steps4, duration4, information4),
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

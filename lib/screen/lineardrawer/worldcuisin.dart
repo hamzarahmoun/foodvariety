@@ -16,16 +16,19 @@ class WorldScreen extends StatelessWidget {
           onTapClose: true,
           swipe: true,
           leftChild: text.buildDrawer(),
-          scaffold: Scaffold(
-            body: ListView.builder(
-                itemCount: world.worldFood.length,
-                itemBuilder: (ctx, i) {
-                  return food.buildCard(
-                      world.worldFood[i].image,
-                      world.worldFood[i].title,
-                      world.worldFood[i].description,
-                      world.worldFood[i].suite);
-                }),
+          scaffold: Padding(
+            padding: const EdgeInsets.only(bottom: 50),
+            child: Scaffold(
+              body: ListView.builder(
+                  itemCount: world.worldFood.length,
+                  itemBuilder: (ctx, i) {
+                    return food.buildCard(
+                        world.worldFood[i].image,
+                        world.worldFood[i].title,
+                        world.worldFood[i].description,
+                        world.worldFood[i].suite);
+                  }),
+            ),
           )),
     );
   }

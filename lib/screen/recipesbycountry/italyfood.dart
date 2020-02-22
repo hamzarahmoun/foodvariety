@@ -86,14 +86,17 @@ class ItalyCountry extends StatelessWidget {
             ),
             text.buildText('Best Dishes To Eat  ', 'in Italy'),
             text.animationListView(
-              widget: ListView.builder(
-                itemCount: italy.italyRecipes.length,
-                itemBuilder: (ctx, i) {
-                  return ChangeNotifierProvider.value(
-                    value: italy.italyRecipes[i],
-                    child: ItalyWidget(),
-                  );
-                },
+              widget: Padding(
+                padding: const EdgeInsets.only(bottom: 15),
+                child: ListView.builder(
+                  itemCount: italy.italyRecipes.length,
+                  itemBuilder: (ctx, i) {
+                    return ChangeNotifierProvider.value(
+                      value: italy.italyRecipes[i],
+                      child: ItalyWidget(),
+                    );
+                  },
+                ),
               ),
             ),
           ],

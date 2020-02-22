@@ -8,8 +8,14 @@ class FoodCountryWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final foodCountry = Provider.of<FoodCountry>(context);
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.only(
+        left: 8,
+        right: 8,
+        top: 8,
+      ),
       child: Column(
         children: <Widget>[
           GestureDetector(
@@ -17,8 +23,8 @@ class FoodCountryWidget extends StatelessWidget {
               Navigator.pushNamed(context, widget);
             },
             child: Container(
-              height: MediaQuery.of(context).size.height * 0.15,
-              width: MediaQuery.of(context).size.height * 0.14,
+              height: height < 500 ? height * 0.15 : height * 0.13,
+              width: height < 500 ? width * 0.24 : width * 0.26,
               decoration: BoxDecoration(
                   shape: BoxShape.rectangle,
                   borderRadius: BorderRadius.circular(15),
@@ -45,6 +51,7 @@ class FoodCountryWidget extends StatelessWidget {
             style: TextStyle(
               fontWeight: FontWeight.bold,
               color: Colors.black54,
+              fontSize: height < 500 ? 10 : 15,
             ),
           ),
         ],

@@ -16,13 +16,19 @@ class YogaScreen extends StatelessWidget {
           onTapClose: true,
           swipe: true,
           leftChild: text.buildDrawer(),
-          scaffold: Scaffold(
-            body: ListView.builder(
-                itemCount: yoga.yoga.length,
-                itemBuilder: (ctx, i) {
-                  return food.buildCard(yoga.yoga[i].image, yoga.yoga[i].title,
-                      yoga.yoga[i].description, yoga.yoga[i].suite);
-                }),
+          scaffold: Padding(
+            padding: const EdgeInsets.only(bottom: 50),
+            child: Scaffold(
+              body: ListView.builder(
+                  itemCount: yoga.yoga.length,
+                  itemBuilder: (ctx, i) {
+                    return food.buildCard(
+                        yoga.yoga[i].image,
+                        yoga.yoga[i].title,
+                        yoga.yoga[i].description,
+                        yoga.yoga[i].suite);
+                  }),
+            ),
           )),
     );
   }

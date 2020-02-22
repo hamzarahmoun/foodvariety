@@ -95,14 +95,17 @@ class _ChinaCountryState extends State<ChinaCountry> {
             ),
             text.buildText('Best Dishes To Eat  ', 'in China'),
             text.animationListView(
-              widget: ListView.builder(
-                itemCount: china.chinaRecipes.length,
-                itemBuilder: (ctx, i) {
-                  return ChangeNotifierProvider.value(
-                    value: china.chinaRecipes[i],
-                    child: ChinaWidget(),
-                  );
-                },
+              widget: Padding(
+                padding: const EdgeInsets.only(bottom: 15),
+                child: ListView.builder(
+                  itemCount: china.chinaRecipes.length,
+                  itemBuilder: (ctx, i) {
+                    return ChangeNotifierProvider.value(
+                      value: china.chinaRecipes[i],
+                      child: ChinaWidget(),
+                    );
+                  },
+                ),
               ),
             ),
           ],

@@ -51,6 +51,8 @@ class _PopularFoodViewState extends State<PopularFoodView>
   }
 
   Widget buildContainer(String image, double value, Widget widget) {
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
     return ScaleTransition(
       scale: CurvedAnimation(
         parent: _controller,
@@ -65,8 +67,8 @@ class _PopularFoodViewState extends State<PopularFoodView>
                   context, MaterialPageRoute(builder: (ctx) => widget));
             },
             child: Container(
-              height: MediaQuery.of(context).size.height * 0.1,
-              width: MediaQuery.of(context).size.width * 0.3,
+              height: height < 600 ? height * 0.15 : height * 0.1,
+              width: width * 0.3,
               decoration: BoxDecoration(
                   gradient: LinearGradient(colors: [
                     Colors.red,
@@ -86,6 +88,7 @@ class _PopularFoodViewState extends State<PopularFoodView>
   }
 
   Widget _buildStack() {
+    final height = MediaQuery.of(context).size.height;
     return Stack(
       children: <Widget>[
         Hero(
@@ -164,7 +167,7 @@ class _PopularFoodViewState extends State<PopularFoodView>
                 Row(
                   children: <Widget>[
                     Container(
-                      height: MediaQuery.of(context).size.height * 0.3,
+                      height: height * 0.3,
                       width: MediaQuery.of(context).size.width * 0.5,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
@@ -188,7 +191,7 @@ class _PopularFoodViewState extends State<PopularFoodView>
                               style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
-                                fontSize: 40,
+                                fontSize: height < 600 ? 30 : 40,
                               ),
                             ),
                           ),
@@ -198,7 +201,7 @@ class _PopularFoodViewState extends State<PopularFoodView>
                               style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
-                                fontSize: 20,
+                                fontSize: height < 600 ? 15 : 20,
                                 letterSpacing: 2,
                               ),
                             ),
@@ -208,7 +211,7 @@ class _PopularFoodViewState extends State<PopularFoodView>
                               child: SmoothStarRating(
                                 color: Colors.yellow,
                                 rating: widget.rating,
-                                size: 40,
+                                size: height < 600 ? 30 : 40,
                                 borderColor: Colors.yellow,
                               )),
                         ],

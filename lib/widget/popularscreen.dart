@@ -14,6 +14,7 @@ class PopularScreen extends StatelessWidget {
     final morocco = Provider.of<Morocco>(context);
     final text = Provider.of<FoodProvider>(context);
     final italy = Provider.of<Italy>(context);
+    final height = MediaQuery.of(context).size.height;
     return ListView.builder(
       itemCount: 1,
       itemBuilder: (ctx, i) => Column(
@@ -21,7 +22,7 @@ class PopularScreen extends StatelessWidget {
           Row(
             children: <Widget>[
               Container(
-                height: MediaQuery.of(context).size.height * 0.3,
+                height: height * 0.25,
                 child: Column(
                   children: <Widget>[
                     Expanded(
@@ -57,7 +58,7 @@ class PopularScreen extends StatelessWidget {
               ),
               Expanded(
                 child: text.buildStoryViewAll(
-                  bottomHeight: 0.29,
+                  bottomHeight: 0.24,
                   bottomWidth: 0.1,
                   title: italy.italyRecipes[i].title,
                   image: italy.italyRecipes[i].imageUrl,

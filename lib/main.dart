@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:foodvariety/provider/cuntryfood.dart';
 import 'package:foodvariety/provider/drawerprovide/festivale.dart';
 import 'package:foodvariety/provider/drawerprovide/foodnew.dart';
@@ -32,11 +33,17 @@ import 'package:provider/provider.dart';
 
 import 'provider/recipesbycountry/moroccofood.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
     return MultiProvider(
       providers: [
         ChangeNotifierProvider.value(value: FoodProvider()),
