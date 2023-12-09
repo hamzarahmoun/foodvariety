@@ -1,16 +1,9 @@
-# foodvariety
-
-A new Flutter application.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Screenshot_1582270863](https://github.com/hamzarahmoun/foodvariety/assets/54839351/f1b64635-e0fe-4e3e-8ecc-017a29a799d4)
+![Screenshot_1582270854](https://github.com/hamzarahmoun/foodvariety/assets/54839351/ced5b22f-573f-447c-9fae-8a2c9fecea9c)
+![Screenshot_1582270844](https://github.com/hamzarahmoun/foodvariety/assets/54839351/c99b13f3-f4b5-4904-9a78-982c00686678)
+![Screenshot_1582270806](https://github.com/hamzarahmoun/foodvariety/assets/54839351/718ef529-db86-4bd9-8d06-b5ebe359acc2)
+![Screenshot_1582270603](https://github.com/hamzarahmoun/foodvariety/assets/54839351/2db024ba-86e1-4325-bdef-4d8bbef5262a)
+![Screenshot_1582270536 (1)](https://github.com/hamzarahmoun/foodvariety/assets/54839351/1e148ce9-ce2a-4b53-a3f5-63fad28cf437)
+![Screenshot_1582270905](https://github.com/hamzarahmoun/foodvariety/assets/54839351/8092505c-8836-4d0f-b882-fc894ebdd7b4)
+![Screenshot_1582270894](https://github.com/hamzarahmoun/foodvariety/assets/54839351/6e80f284-eb74-4527-bc02-fd9a75353292)
+![Screenshot_1582270882](https://github.com/hamzarahmoun/foodvariety/assets/54839351/2d1c5fd6-7da7-417a-85e7-36823ab86e9c)
